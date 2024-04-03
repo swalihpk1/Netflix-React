@@ -1,0 +1,37 @@
+.banner {
+    background-image: url('/public/banner.jpg');
+    background-size: cover;
+    height: 510px;
+    color: white;
+}
+
+.content {
+    position: absolute;
+    top: 30%;
+    margin-left: 3rem;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom_fade {
+    height: 510px;
+    background-image: linear-gradient(180deg, transparent, rgb(66 32 32 / 61%), #111);
+}
+
+.button {
+    border: none;
+    margin: 3px;
+    border-radius: 3px;
+    background: #3333339c;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    transition: ease 0.5s;
+
+}

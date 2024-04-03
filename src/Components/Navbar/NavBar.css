@@ -1,0 +1,10 @@
+.logo {
+    width: 7rem;
+    margin: 1rem;
+}
+
+.navbar {
+    background-color: black;
+    position: fixed;
+}
+

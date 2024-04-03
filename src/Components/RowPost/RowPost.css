@@ -1,0 +1,19 @@
+.row {
+    margin-left: 2rem;
+    color: white;
+}
+
+.posters {
+    display: flex;
+    justify-content: space-evenly;
+    overflow-x:scroll ;
+    overflow-y: none;
+}
+.posters::-webkit-scrollbar{
+    display:none;
+}
+
+.poster {
+    max-width: 300px; 
+    margin-right: 1.5rem;
+}
