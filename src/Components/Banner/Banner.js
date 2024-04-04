@@ -16,8 +16,8 @@ const Banner = () => {
         <div className='banner' style={{ backgroundImage: `url(${movie ? IMAGE_URL + movie.backdrop_path : ""})` }}>
             <div className='content'>
                 <h1 style={{ fontWeight: 700 }}>{movie ? movie.title || movie.name : ""}</h1>
-                <div className='banner_buttons my-1'>
-                    <button className='button px-3'>Play</button>
+                <div className='banner_buttons mt-1 mb-3 ps-4'>
+                    <button className='button  ml-2 '>Play</button>
                     <button className='button  px-3'>My list</button>
                 </div>
                 <h6 className='description'>{movie ? movie.overview : ""}</h6>

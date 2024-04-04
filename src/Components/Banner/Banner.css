@@ -14,6 +14,7 @@
     flex-direction: column;
 }
 
+
 .bottom_fade {
     height: 605px;
     background-image: linear-gradient(180deg, transparent, rgb(66 32 32 / 61%), #111);
@@ -30,8 +31,7 @@
 }
 
 button:hover {
-    background-color: white;
-    color: black;
+    background-color: #E50914;
     transition: ease 0.5s;
 
 }
