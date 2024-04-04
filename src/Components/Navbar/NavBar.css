@@ -4,7 +4,7 @@
 }
 
 .navbar {
-    background-color: black;
-    position: fixed;
+    /* background-color: black; */
+    position: absolute;
 }
 

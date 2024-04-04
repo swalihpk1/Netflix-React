@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './RowPost.css'
+import axios from '../../Axios';
+import { IMAGE_URL } from '../../Constants/Constants';
 
-const RowPost = () => {
+const RowPost = ({ title, isSmall, url }) => {
+    const [movies, setMovies] = useState([])
+    useEffect(() => {
+        axios.get(url).then((response) => {
+            setMovies(response.data.results)
+            console.log(response.data.results)
+        }).catch(err => {
+            alert("Network error")
+        })
+    }, [])
+
     return (
         <div>
             <div className="row">
-                <h2>Title</h2>
+                <h5>{title}</h5>
                 <div className="posters">
-                    <img className='poster ' src="https://images.squarespace-cdn.com/content/v1/59232e19579fb3fa44a693c2/1589212826160-UM9PEPGOS3OJPR0FJ81X/ke17ZwdGBToddI8pDm48kHZUaJeKzodyg_sXWBMxNTdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxCBUU7B-_SAG1kGvCwYgmUjQXvn8_OJjtz3K1llMQBa1MPsuSXPSY3X-tgg78M7lI/SKOyqL1qFLIhbK6ho2lB-696x975.jpg?format=1500w" alt="Poster" />
-                    <img className='poster' src="https://mpics.mgronline.com/pics/Images/563000003510402.JPEG" alt="Poster" />
-                    <img className='poster' src="https://images.squarespace-cdn.com/content/v1/59232e19579fb3fa44a693c2/1589212826160-UM9PEPGOS3OJPR0FJ81X/ke17ZwdGBToddI8pDm48kHZUaJeKzodyg_sXWBMxNTdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxCBUU7B-_SAG1kGvCwYgmUjQXvn8_OJjtz3K1llMQBa1MPsuSXPSY3X-tgg78M7lI/SKOyqL1qFLIhbK6ho2lB-696x975.jpg?format=1500w" alt="Poster" />
-                    <img className='poster' src="https://mpics.mgronline.com/pics/Images/563000003510402.JPEG" alt="Poster" />
-                    <img className='poster' src="https://images.squarespace-cdn.com/content/v1/59232e19579fb3fa44a693c2/1589212826160-UM9PEPGOS3OJPR0FJ81X/ke17ZwdGBToddI8pDm48kHZUaJeKzodyg_sXWBMxNTdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxCBUU7B-_SAG1kGvCwYgmUjQXvn8_OJjtz3K1llMQBa1MPsuSXPSY3X-tgg78M7lI/SKOyqL1qFLIhbK6ho2lB-696x975.jpg?format=1500w" alt="Poster" />
-                    <img className='poster' src="https://mpics.mgronline.com/pics/Images/563000003510402.JPEG" alt="Poster" />
-                    <img className='poster' src="https://images.squarespace-cdn.com/content/v1/59232e19579fb3fa44a693c2/1589212826160-UM9PEPGOS3OJPR0FJ81X/ke17ZwdGBToddI8pDm48kHZUaJeKzodyg_sXWBMxNTdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxCBUU7B-_SAG1kGvCwYgmUjQXvn8_OJjtz3K1llMQBa1MPsuSXPSY3X-tgg78M7lI/SKOyqL1qFLIhbK6ho2lB-696x975.jpg?format=1500w" alt="Poster" />
-                    <img className='poster' src="https://mpics.mgronline.com/pics/Images/563000003510402.JPEG" alt="Poster" />
+                    {movies.map((movie) =>
+                        <img className={isSmall ? 'smallPoster' : 'poster'} src={`${movie ? IMAGE_URL + movie.backdrop_path : "fallback_image_url"}`} alt={movie ? `Poster for ${movie.title}` : "Fallback Poster"} />
+
+                    )}
                 </div>
             </div>
         </div>

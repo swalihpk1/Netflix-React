@@ -1,19 +1,30 @@
 .row {
     margin-left: 2rem;
     color: white;
+    margin-top: 1rem;
 }
 
 .posters {
     display: flex;
     justify-content: space-evenly;
-    overflow-x:scroll ;
+    overflow-x: scroll;
     overflow-y: none;
 }
-.posters::-webkit-scrollbar{
-    display:none;
+
+.posters::-webkit-scrollbar {
+    display: none;
 }
 
 .poster {
-    max-width: 300px; 
+    min-width: 330px;
+    min-height: 210px;
     margin-right: 1.5rem;
+
+}
+
+.smallPoster {
+    min-width: 200px;
+    min-height: 120px;
+    margin-right: 1.5rem;
+
 }
